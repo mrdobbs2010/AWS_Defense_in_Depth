@@ -32,8 +32,8 @@ This setup demonstrates a layered approach to security and showcases how to mana
      * Associated public IP for SSH/HTTPS.
 
 ## Architecture
-
-<+-----------------------------+>
+```
++-----------------------------+
 |        AWS Account          |
 +-----------------------------+
           |
@@ -55,7 +55,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
       | EC2    |
       | Instance|
       +--------+
-
+```
 ## Prerequitites
 * Terraform: Installed on local machine (v1.5 or later recommended).
 * AWS CLI: Installed and configured with credentials.
