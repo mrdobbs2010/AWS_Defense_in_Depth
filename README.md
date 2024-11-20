@@ -61,7 +61,12 @@ This setup demonstrates a layered approach to security and showcases how to mana
 * AWS CLI: Installed and configured with credentials.
 * Git: For version control.
 * Access: An AWS with appropriate IAM permissions.
+## AWS Console Screenshots
+### VPC
+![VPC Screenshot](screenshots/)
 
+### EC2 Instance
+![EC2 Screenshot](screenshots/)
 ## Usage
 * Clone the repository:
 ```
