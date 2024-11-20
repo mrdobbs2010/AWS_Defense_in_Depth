@@ -63,10 +63,10 @@ This setup demonstrates a layered approach to security and showcases how to mana
 * Access: An AWS with appropriate IAM permissions.
 ## AWS Console Screenshots
 ### VPC
-![VPC Screenshot]( AWS_VPC.png)
+![VPC Screenshot](/AWS_VPC.png)
 
 ### EC2 Instance
-![EC2 Screenshot](AWS_Instance.png)
+![EC2 Screenshot](/AWS_Instance.png)
 ## Usage
 * Clone the repository:
 ```
