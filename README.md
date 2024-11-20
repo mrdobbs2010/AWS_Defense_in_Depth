@@ -12,24 +12,24 @@ This project demonstrates a defense in depth approach to securing cloud resource
 
 ## Overview
 The AWS Defense in Depth Project applies best practices for securing AWS cloud environments. It includes:
-  *A VPC with specified CIDR block.
-  *Subnets in defined availability zones.
-  *Security groups with tailored ingress and egress rules.
-  *EC2 instances configured with SSH and RDP access.
+  * A VPC with specified CIDR block.
+  * Subnets in defined availability zones.
+  * Security groups with tailored ingress and egress rules.
+  * EC2 instances configured with SSH and RDP access.
 This setup demonstrates a layered approach to security and showcases how to manage resources as code with Terraform.
 
 ## Features
   1. Custom VPC:
-     *CIDR block: 10.0.0.0/16
+     * CIDR block: 10.0.0.0/16
   2. Subnets:
-     *Availability zone: us-east-2a
-     *CIDR block: 10.0.1.0/24
+     * Availability zone: us-east-2a
+     * CIDR block: 10.0.1.0/24
   3. Security groups:
-     *Ingress: SSH (22) and HTTPS (443) from trusted IPs.
-     *Egress: Open to all outbound traffic.
+     * Ingress: SSH (22) and HTTPS (443) from trusted IPs.
+     * Egress: Open to all outbound traffic.
   4. EC2 Instance:
-     *Launches in defined subnet.
-     *Associated public IP for SSH/HTTPS.
+     * Launches in defined subnet.
+     * Associated public IP for SSH/HTTPS.
 
 ## Architecture
 ```
@@ -57,26 +57,26 @@ This setup demonstrates a layered approach to security and showcases how to mana
       +--------+
 ```
 ## Prerequitites
-*Terraform: Installed on local machine (v1.5 or later recommended).
-*AWS CLI: Installed and configured with credentials.
-*Git: For version control.
-*Access: An AWS with appropriate IAM permissions.
+* Terraform: Installed on local machine (v1.5 or later recommended).
+* AWS CLI: Installed and configured with credentials.
+* Git: For version control.
+* Access: An AWS with appropriate IAM permissions.
 
 ## Usage
-*Clone the repository:
+* lone the repository:
   git clone https://github.com/mrdobbs2010/AWS_Defense_in_Depth.git
   cd AWS_Defense_in_Depth
 
-*Initialize Terraform
+* Initialize Terraform
   terraform init
 
-*Plan the Infrastructure
+* Plan the Infrastructure
   terraform plan
 
-*Apply the configuration and create the resources
+* Apply the configuration and create the resources
   terraform apply
 
-*Access the Instance
+* Access the Instance
   1. Locate the public IP address of the instance (output by Terraform).
   2. Use SSH to connect.
     ssh ec2-user@<instance-public-ip>
