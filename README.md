@@ -1,7 +1,7 @@
 # AWS_Defense_in_Depth
 This project demonstrates a defense in depth approach to securing cloud resources using AWS and Terraform.
 
-##Table of Contents
+## Table of Contents
 -Overview
 -Features
 -Architecture
@@ -10,7 +10,7 @@ This project demonstrates a defense in depth approach to securing cloud resource
 -Project Structure
 -License
 
-##Overview
+## Overview
 The AWS Defense in Depth Project applies best practices for securing AWS cloud environments. It includes:
   -A VPC with specified CIDR block.
   -Subnets in defined availability zones.
@@ -18,7 +18,7 @@ The AWS Defense in Depth Project applies best practices for securing AWS cloud e
   -EC2 instances configured with SSH and RDP access.
 This setup demonstrates a layered approach to security and showcases how to manage resources as code with Terraform.
 
-##Features
+## Features
   1. Custom VPC:
      -CIDR block: 10.0.0.0/16
   2. Subnets:
@@ -31,8 +31,8 @@ This setup demonstrates a layered approach to security and showcases how to mana
      -Launches in defined subnet.
      -Associated public IP for SSH/HTTPS.
 
-##Architecture
-
+## Architecture
+```
 +-----------------------------+
 |        AWS Account          |
 +-----------------------------+
@@ -55,14 +55,14 @@ This setup demonstrates a layered approach to security and showcases how to mana
       | EC2    |
       | Instance|
       +--------+
-
-##Prerequitites
+```
+## Prerequitites
 -Terraform: Installed on local machine (v1.5 or later recommended).
 -AWS CLI: Installed and configured with credentials.
 -Git: For version control.
 -Access: An AWS with appropriate IAM permissions.
 
-##Usage
+## Usage
 Clone the repository:
 git clone https://github.com/mrdobbs2010/AWS_Defense_in_Depth.git
 cd AWS_Defense_in_Depth
@@ -81,7 +81,7 @@ Access the Instance
 2. Use SSH to connect.
   ssh ec2-user@<instance-public-ip>
 
-##Project Structure
+## Project Structure
 AWS_Defense_in_Depth/
 ├── main.tf               # Main Terraform configuration
 ├── providers.tf          # Providers for the project
@@ -90,5 +90,5 @@ AWS_Defense_in_Depth/
 ├── outputs.tf            # Outputs for public IP, VPC ID, etc.
 ├── README.md             # Documentation for the project
 
-##License
+## License
 This project is licensed under the MIT License. See the LICENSE{License} file for details.
