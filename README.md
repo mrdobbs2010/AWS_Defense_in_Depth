@@ -82,6 +82,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
     ssh ec2-user@<instance-public-ip>
 
 ## Project Structure
+```
 AWS_Defense_in_Depth/
 ├── main.tf               # Main Terraform configuration
 ├── providers.tf          # Providers for the project
@@ -89,6 +90,6 @@ AWS_Defense_in_Depth/
 ├── variables.tf          # Variables for the project
 ├── outputs.tf            # Outputs for public IP, VPC ID, etc.
 ├── README.md             # Documentation for the project
-
+```
 ## License
 This project is licensed under the MIT License. See the LICENSE{License} file for details.
