@@ -2,6 +2,7 @@
 This project demonstrates a defense in depth approach to securing cloud resources using AWS and Terraform.
 
 ## Table of Contents
+```
 *Overview
 *Features
 *Architecture
@@ -9,7 +10,7 @@ This project demonstrates a defense in depth approach to securing cloud resource
 *Usage
 *Project Structure
 *License
-
+```
 ## Overview
 The AWS Defense in Depth Project applies best practices for securing AWS cloud environments. It includes:
   *A VPC with specified CIDR block.
