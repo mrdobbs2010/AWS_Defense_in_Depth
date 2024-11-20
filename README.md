@@ -69,10 +69,12 @@ This setup demonstrates a layered approach to security and showcases how to mana
   cd AWS_Defense_in_Depth
 ```
 * Initialize Terraform
-  ```
+```
   terraform init
 ```
+
 * Plan the Infrastructure
+
 ```
   terraform plan
 ```
