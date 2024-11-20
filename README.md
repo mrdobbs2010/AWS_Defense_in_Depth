@@ -66,7 +66,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
 ![VPC Screenshot](/AWS_VPC.png)
 
 ### EC2 Instance
-![EC2 Screenshot](/AWS_Instance.png)
+![EC2 Screenshot](/AWS_Screenshot.png)
 ## Usage
 * Clone the repository:
 ```
