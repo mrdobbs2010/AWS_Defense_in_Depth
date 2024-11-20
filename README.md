@@ -32,8 +32,8 @@ This setup demonstrates a layered approach to security and showcases how to mana
      * Associated public IP for SSH/HTTPS.
 
 ## Architecture
-```
-+-----------------------------+
+
+<+-----------------------------+>
 |        AWS Account          |
 +-----------------------------+
           |
@@ -55,7 +55,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
       | EC2    |
       | Instance|
       +--------+
-```
+
 ## Prerequitites
 * Terraform: Installed on local machine (v1.5 or later recommended).
 * AWS CLI: Installed and configured with credentials.
@@ -64,23 +64,28 @@ This setup demonstrates a layered approach to security and showcases how to mana
 
 ## Usage
 * Clone the repository:
+```
   git clone https://github.com/mrdobbs2010/AWS_Defense_in_Depth.git
   cd AWS_Defense_in_Depth
-
+```
 * Initialize Terraform
+  ```
   terraform init
-
+```
 * Plan the Infrastructure
+```
   terraform plan
-
+```
 * Apply the configuration and create the resources
+```
   terraform apply
-
+```
 * Access the Instance
   1. Locate the public IP address of the instance (output by Terraform).
   2. Use SSH to connect.
+```
     ssh ec2-user@<instance-public-ip>
-
+```
 ## Project Structure
 ```
 AWS_Defense_in_Depth/
