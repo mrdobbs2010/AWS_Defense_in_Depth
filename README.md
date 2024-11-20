@@ -63,7 +63,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
 * Access: An AWS with appropriate IAM permissions.
 
 ## Usage
-* lone the repository:
+* Clone the repository:
   git clone https://github.com/mrdobbs2010/AWS_Defense_in_Depth.git
   cd AWS_Defense_in_Depth
 
