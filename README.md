@@ -125,10 +125,20 @@ This setup demonstrates a layered approach to security and showcases how to mana
   terraform apply
 ```
 * Access the Instance
-  1. Navigate to AWS Console > EC
-```
-    ssh ec2-user@<instance-public-ip>
-```
+  1. Navigate to AWS Console > EC2 > Instances. Click on the instance name generated and shown in Terraform.
+  2. Click the "Connect" button.
+  3. Choose the RDP Client tab.
+  4. Click "Download the Remote Desktop file." This can now be found in your "Downloads" folder.
+  5. Click "Get Password."
+  6. Be sure RSA is chosen. Browse and choose the .pem file for your secret password in your "Downloads" folder. (Or paste the contents manually)
+  7. Copy the password to use when you connect to the instance.
+  8. Open Remote Desktop Connection on your own computer. Click "Options" Dropdown.
+  9. Enter the DNS of the instance generated in VS.
+  10. Username: "Administrator."
+  11. Under the "Connections" section, click "Open" and choose the Remote Desktop file in your "Downloads" folder for the instance.
+  12. When the remote connection is complete, enter the password you decrypted and copied from your AWS Console.
+  13. Have fun using your remote desktop!
+
 ## Project Structure
 ```
 AWS_Defense_in_Depth/
