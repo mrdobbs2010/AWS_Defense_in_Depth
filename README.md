@@ -15,7 +15,10 @@ The AWS Defense in Depth Project applies best practices for securing AWS cloud e
   * A VPC with specified CIDR block.
   * Subnets in defined availability zones.
   * Security groups with tailored ingress and egress rules.
-  * EC2 instances configured with SSH and RDP access.
+  * An internet gateway for internet access.
+  * A route table associated with the subnet for access control.
+  * EC2 instances in a Windows environment configured with RDP access from a specified IP address or CIDR block.
+  * A generated RSA key pair with 2048 bits: public key generated into AWS Console and private key into working directory.
 This setup demonstrates a layered approach to security and showcases how to manage resources as code with Terraform.
 
 ## Features
@@ -25,36 +28,70 @@ This setup demonstrates a layered approach to security and showcases how to mana
      * Availability zone: us-east-2a
      * CIDR block: 10.0.1.0/24
   3. Security groups:
-     * Ingress: SSH (22) and HTTPS (443) from trusted IPs.
+     * Ingress: RDP (3389) from trusted IP.
      * Egress: Open to all outbound traffic.
-  4. EC2 Instance:
+  4. Internet Gateway
+     * Destination CIDR: 0.0.0.0/0.
+  6. Route Table
+     * Associated with VPC and Subnet CIDRs.
+  7. EC2 Instance:
      * Launches in defined subnet.
-     * Associated public IP for SSH/HTTPS.
+     * Associated public IP for RDP.
+  8. Key Pair
+     * Private Key: Saved to specified filepath as .pem file.
+       * RSA with 2048 bits (AWS default)
+     * Public Key: Saved to AWS Console.
 
 ## Architecture
 ```
-+-----------------------------+
-|        AWS Account          |
-+-----------------------------+
-          |
-      +---VPC------------------+
-      |  CIDR: 10.0.0.0/16     |
-      |                        |
-  +---+---+                +---+---+
-  | Subnet |                | Subnet |
-  | 10.0.1.0/24             | 10.0.2.0/24
-  | AZ: us-east-2a          | AZ: us-east-2b
-  +---+---+                +---+---+
-      |                        |
-  +---+-------------------+
-  | Security Group         |
-  | SSH (22), RDP (3389)   |
-  +------------------------+
-          |
-      +---+---+
-      | EC2    |
-      | Instance|
-      +--------+
++------------------------------------------------+
+|                    AWS Account                 |
++------------------------------------------------+
+                       |
+                       v
++------------------------------------------------+
+|                     VPC                        |
+|             CIDR: 10.0.0.0/16                  |
++------------------------------------------------+
+                       |
+       +---------------+---------------+
+       |                               |
+       v                               v
++-----------------------+   +-----------------------+
+|   Public Subnet       |   |   Private Subnet      |
+|   CIDR: 10.0.1.0/24   |   |   CIDR: 10.0.2.0/24   |
++-----------------------+   +-----------------------+
+                       |
+                       v
+       +-------------------------------------+
+       |          Internet Gateway           |
+       +-------------------------------------+
+                       |
+                       v
+       +-------------------------------------+
+       |        Route Table:                 |
+       |  Route: 0.0.0.0/0 → Internet Gateway|
+       |  Associated Subnet: Public Subnet   |
+       +-------------------------------------+
+                       |
+                       v
+       +-------------------------------------+
+       |      Security Group: "sg-name"      |
+       |  Inbound Rules:                     |
+       |    - RDP (TCP 3389): 0.0.0.0/0      |
+       |  Outbound Rules:                    |
+       |    - All Traffic: 0.0.0.0/0         |
+       +-------------------------------------+
+                       |
+                       v
+       +-------------------------------------+
+       |        EC2 Instance                 |
+       |    Type: t2.micro                   |
+       |    Key Pair: "my-keypair"           |
+       |    Subnet: Public Subnet            |
+       |    Security Group: "sg-name"        |
+       +-------------------------------------+
+
 ```
 ## Prerequitites
 * Terraform: Installed on local machine (v1.5 or later recommended).
@@ -88,8 +125,7 @@ This setup demonstrates a layered approach to security and showcases how to mana
   terraform apply
 ```
 * Access the Instance
-  1. Locate the public IP address of the instance (output by Terraform).
-  2. Use SSH to connect.
+  1. Navigate to AWS Console > EC
 ```
     ssh ec2-user@<instance-public-ip>
 ```
