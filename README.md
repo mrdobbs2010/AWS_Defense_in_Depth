@@ -1,6 +1,8 @@
 # AWS Defense in Depth
-This project demonstrates a defense in depth approach to securing cloud resources using AWS and Terraform.
 ### Note: You must have an AWS account. You must have Visual Studio with Terraform and AWSCLI configured. Satisfy these prerequisites before moving forward!
+
+This project demonstrates a defense in depth approach to securing cloud resources using AWS and Terraform.
+
 ## Table of Contents
 * Overview
 * Features
